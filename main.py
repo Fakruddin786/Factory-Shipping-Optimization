@@ -14,7 +14,7 @@ def main():
     
     # 1. Generate Raw Data
     logger.info("STEP 1: Generating Data")
-    generate_synthetic_data(10000)
+    # generate_synthetic_data(10000)
     
     # 2. Preprocess Data
     logger.info("STEP 2: Preprocessing Data")

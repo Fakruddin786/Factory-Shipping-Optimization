@@ -27,7 +27,7 @@ The organization requires a recommendation engine capable of:
 ## 3. Project Structure
 - `app/`: Multi-page Streamlit dashboard providing executive overviews, simulations, and recommendations.
 - `src/`: Core backend modules for data engineering, model training (XGBoost/LightGBM/CatBoost), clustering, and optimization.
-- `data/`: Raw and processed dataset storage.
+- `data/`: Raw and processed dataset storage, including the newly added `orders.csv` (raw historical orders) and `route_clusters.csv` for clustered route performance.
 - `models/`: Saved machine learning pipelines.
 - `main.py`: Orchestrator script to generate data, train models, and run the optimization pipeline.
 

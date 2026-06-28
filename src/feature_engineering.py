@@ -17,8 +17,8 @@ def generate_features(df: pd.DataFrame) -> pd.DataFrame:
     logger.info("Generating features...")
     try:
         # Date Features
-        df['Order Date'] = pd.to_datetime(df['Order Date'])
-        df['Ship Date'] = pd.to_datetime(df['Ship Date'])
+        df['Order Date'] = pd.to_datetime(df['Order Date'], format='mixed', dayfirst=True)
+        df['Ship Date'] = pd.to_datetime(df['Ship Date'], format='mixed', dayfirst=True)
         
         df['Month'] = df['Order Date'].dt.month
         df['Year'] = df['Order Date'].dt.year

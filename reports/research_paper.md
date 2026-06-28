@@ -11,7 +11,7 @@ To address these challenges, we proposed a data-driven recommendation engine cap
 ## 2. Methodology
 
 ### 2.1 Data Generation and Preprocessing
-The research utilized a synthetic dataset of 10,000 order records mapped to 5 distinct factories and 15 products. The preprocessing pipeline included:
+The research utilized a synthetic dataset of 10,000 order records (stored in `data/raw/orders.csv`) mapped to 5 distinct factories and 15 products. The preprocessing pipeline included:
 - **Missing Value Imputation**: Gross Profit was derived using Sales and Manufacturing Cost rather than relying on listwise deletion.
 - **Outlier Removal**: Extreme shipping lead times were removed using the Interquartile Range (IQR) method to ensure models were trained on representative operational data.
 - **Feature Engineering**: Temporal features (month, quarter) and unit economics (cost per unit, sales per unit) were generated to provide the predictive models with rich context.
@@ -29,7 +29,7 @@ The core objective of the predictive phase was to accurately estimate shipping l
 **Results**: The Gradient Boosting Regressor consistently outperformed other models, achieving an R² of approximately 0.9267 and a MAPE of 10.42%, indicating highly reliable predictions suitable for operational deployment.
 
 ### 2.3 Unsupervised Clustering
-To understand intrinsic network behaviors, we employed clustering algorithms (K-Means, DBSCAN, Hierarchical) to segment delivery routes. This analysis successfully identified high-density, high-efficiency shipping corridors versus isolated, high-cost routes, providing qualitative context to the quantitative predictions.
+To understand intrinsic network behaviors, we employed clustering algorithms (K-Means, DBSCAN, Hierarchical) to segment delivery routes. This analysis successfully identified high-density, high-efficiency shipping corridors versus isolated, high-cost routes, providing qualitative context to the quantitative predictions. The output of this stage is stored in the newly added `data/route_clusters.csv` dataset, which includes cluster assignments and slow-route identifiers.
 
 ### 2.4 Optimization and Recommendation Engine
 The final phase translated predictive insights into actionable business logic. The recommendation algorithm scores alternative factory assignments using a weighted multi-objective function:
